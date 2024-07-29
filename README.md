@@ -1,5 +1,6 @@
-JaxWallet   (Image of a secure wallet)
+![Screenshot 2024-07-29 205755](https://github.com/user-attachments/assets/ba65c9ab-f67c-4db5-a862-0b51890d30d1)
 
+JaxWallet   
 JaxWallet is a personal project dedicated to crafting a secure and user-friendly decentralized Ethereum wallet. Built with the powerful trio of React.js, npm, and Hardhat for Solidity, JaxWallet empowers you to manage your Ethereum assets with ease and efficiency.
 
 ** Features:**
