@@ -8,3 +8,16 @@ git commit -m "Smart Setuped"
 
 # Push to the main branch
 git push origin main
+
+
+# Open terminal in VSCode
+
+# Pull remote changes and merge
+git pull origin main
+
+# If there are conflicts, resolve them, then add and commit the resolved files
+git add .
+git commit -m "Resolved merge conflicts"
+
+# Push local changes
+git push origin main
