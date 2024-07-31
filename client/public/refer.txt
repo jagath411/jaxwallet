@@ -1,0 +1,10 @@
+# Open terminal in VSCode
+
+# Stage all changes
+git add .
+
+# Commit with a message
+git commit -m "Smart Setuped"
+
+# Push to the main branch
+git push origin main
