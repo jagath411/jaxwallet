@@ -1,8 +1,14 @@
+const { ethers } = require("hardhat");
+
 const main = async () => {
-  const Greeter = await hre.ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Hello, Hardhat!");
-  await greeter.deployed();
-  console.log("Greeter deployed to:", greeter.address);
+  const Transactions = await ethers.getContractFactory("Transactions");
+
+  // Deploy the contract
+  const transactions = await Transactions.deploy();
+
+  // Wait for deployment to finish
+  await transactions.deployed();
+  console.log("Transactions deployed to:", transactions.address);
 };
 
 const runMain = async () => {
