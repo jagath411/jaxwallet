@@ -20,13 +20,23 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
   />
 );
 const Welcome = () => {
-  const { value } = useContext(TransactionContext);
-  console.log(value);
-  const connectWallet = () => {
-    console.log("Connect wallet");
-  };
-  const handleSubmit = () => {
-    console.table({ hiewjr: "heifniwe", wallet: "wallet" });
+  const {
+    currentAccount,
+    connectWallet,
+    handleChange,
+    sendTransaction,
+    formData,
+    isLoading,
+  } = useContext(TransactionContext);
+
+  const handleSubmit = (e) => {
+    const { addressTo, amount, keyword, message } = formData;
+
+    e.preventDefault();
+
+    if (!addressTo || !amount || !keyword || !message) return;
+
+    sendTransaction();
   };
   return (
     <div className="flex w-full justify-center item-center">
@@ -39,14 +49,19 @@ const Welcome = () => {
             Explore the Crypto World .Buy and Sell cryptocurrencies easily on
             Jaxwallet.
           </p>
-          <button
-            type="button"
-            onClick={connectWallet}
-            className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#1233a9]"
-          >
-            <p className="text-white text-base font-semibold">Connect Wallet</p>
-            {/* <GiCrystalCluster className="ml-5" /> */}
-          </button>
+          {!currentAccount && (
+            <button
+              type="button"
+              onClick={connectWallet}
+              className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
+            >
+              <AiFillPlayCircle className="text-white mr-2" />
+              <p className="text-white text-base font-semibold">
+                Connect Wallet
+              </p>
+            </button>
+          )}
+
           <div className="grid sm:grid-col-3 grid-cols-3 w-full mt-10">
             <div className={`rounded-tl-2xl ${companyCommonStyles}`}>
               Reliability
@@ -82,33 +97,29 @@ const Welcome = () => {
             </div>
           </div>
           <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-            <input
-              className={dynamicClasses}
+            <Input
               placeholder="Address To"
               name="addressTo"
               type="text"
-              handleChange={() => {}}
-            />{" "}
-            <input
-              className={dynamicClasses}
-              placeholder="Amount (ETF)"
-              name="amount"
-              type="text"
-              handleChange={() => {}}
+              handleChange={handleChange}
             />
-            <input
-              className={dynamicClasses}
+            <Input
+              placeholder="Amount (ETH)"
+              name="amount"
+              type="number"
+              handleChange={handleChange}
+            />
+            <Input
               placeholder="Keyword (Gif)"
               name="keyword"
               type="text"
-              handleChange={() => {}}
+              handleChange={handleChange}
             />
-            <input
-              className={dynamicClasses}
+            <Input
               placeholder="Enter Message"
               name="message"
               type="text"
-              handleChange={() => {}}
+              handleChange={handleChange}
             />
             <div className="h-[1px] w-full bg-gray-400 my-2" />
             {false ? (
