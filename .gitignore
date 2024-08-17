@@ -1,0 +1,27 @@
+# Node.js dependencies
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea/
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore node_modules
+node_modules/
+
+# Ignore build and temp files
+dist/
+.temp/
+
+# Make sure artifacts is not listed here
+
