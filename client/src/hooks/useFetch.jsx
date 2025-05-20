@@ -6,3 +6,5 @@ const useFetch = () => {
   const [gifUrl, setGifurl] = useState(null);
   const fetchGifs = async () => {};
 };
+
+export default useFetch;
